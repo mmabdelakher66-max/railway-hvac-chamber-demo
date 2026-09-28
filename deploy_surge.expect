@@ -1,0 +1,14 @@
+#!/usr/bin/expect -f
+set timeout -1
+spawn npx -y surge ./dist railway-hvac-chamber-presentation.surge.sh
+expect {
+    "email:" {
+        send "student_demo_199123@example.com\r"
+        exp_continue
+    }
+    "password:" {
+        send "password123\r"
+        exp_continue
+    }
+    eof
+}
